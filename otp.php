@@ -1,4 +1,3 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <?php 
 function send_mail($to, $from, $subject, $message, $fname)
 {
@@ -50,13 +49,11 @@ if(!isset($_POST["submit_otp"]) && !isset($_POST["confirm_otp"])){
 
 	$otp_num = rand(1,99999);
 	$opt_num = str_pad($otp_num, 5, '0', STR_PAD_LEFT);
-	//echo $opt_num."<br>";
 
 	$string_md5 = md5($otp_num);
-	//echo $string_md5;
+
 	$pos = rand(1,9);
 	$string_md5 = $pos.substr($string_md5,0,$pos).$otp_num.substr($string_md5,$pos);
-	//echo $string_md5."<br>";
 	?>
 	<div align='center'><form name="send" action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
 	<input type="text" name="email" placeholder="Input your email..." onChange="checkValid();"><br>
@@ -72,8 +69,7 @@ if(!isset($_POST["submit_otp"]) && !isset($_POST["confirm_otp"])){
 	$string_md5 = str_replace($otp_num,"",substr($string_md5,1));
 	//echo $otp_num."<br>";
 	//echo md5($otp_num);
-	send_mail($_POST["email"], "dai.ca@buidoicholon.vn", "OTP Code", "Your OTP code is: ".$otp_num, "Big Sugar")
-	//mail($_POST["email"],"Your OTP code","Your OTP code is: ".$otp_num);
+	send_mail($_POST["email"], "dai.ca@buidoicholon.vn", "OTP Code", "Your OTP code is: ".$otp_num, "Big Sugar");
 	?>
 	<div align='center'><form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
 	<input type="text" name="otp" placeholder="Input your OTP code"><br>
@@ -96,7 +92,6 @@ if(!isset($_POST["submit_otp"]) && !isset($_POST["confirm_otp"])){
 	    timer = setTimeout(countDown, 1000);
 	    count--; // decrease the timer
 	  } else {
-	    //btn.setAttribute("disabled");
 		btn.disabled = true;	
 	  }
 	}());
