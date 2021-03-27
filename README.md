@@ -1,3 +1,3 @@
 # OTP-PHP
-Simple PHP Script to sending the OTP via email.
+Simple PHP Script to send the OTP via email.
 
